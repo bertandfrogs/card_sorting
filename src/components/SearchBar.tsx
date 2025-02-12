@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface SearchBarProps {
   setSearchTerm: (term: string) => void;
@@ -6,6 +7,11 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ setSearchTerm }) => {
   const [input, setInput] = useState("");
+  
+  // search every time the input changes
+  useEffect(() => {
+	handleSearch();
+  }, [input]);
 
   const handleSearch = () => {
     setSearchTerm(input);
@@ -17,9 +23,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ setSearchTerm }) => {
         type="text"
         placeholder="Search Courses..."
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={(e) => {
+			setInput(e.target.value);
+		}}
       />
-      <button onClick={handleSearch}>🔍</button>
+	  {/* TODO: fix this to actually work */}
+      {/* <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /> */}
     </div>
   );
 };

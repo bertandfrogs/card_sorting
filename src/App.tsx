@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import SearchBar from "./components/SearchBar.tsx";
-import Filters from "./components/Filters.tsx";
-import CourseList from "./components/CourseList.tsx";
+import Layout from "./components/Layout.tsx";
+import SearchBar from "./components/SearchBar";
+import Filters from "./components/Filters";
+import CourseList from "./components/CourseList";
 import coursesData from "./assets/courses.json";
 import "./styles.css";
 
@@ -22,12 +23,20 @@ const App: React.FC = () => {
   );
 
   return (
-    <div className="container">
-      <h1>BYU Undergraduate Catalog</h1>
-      <SearchBar setSearchTerm={setSearchTerm} />
-      <Filters />
-      <CourseList courses={filteredCourses} />
-    </div>
+    <Layout>
+      <div className="catalog-container">
+        {/* Left Section: Search and Filters */}
+        <div className="sidebar">
+          <SearchBar setSearchTerm={setSearchTerm} />
+          <Filters />
+        </div>
+
+        {/* Right Section: Course List */}
+        <div className="course-section">
+          <CourseList courses={filteredCourses} />
+        </div>
+      </div>
+    </Layout>
   );
 };
 

@@ -1,23 +1,26 @@
 import React from "react";
-import CourseCard from "./CourseCard.tsx";
 
 interface Course {
-  id: number;
-  code: string;
-  title: string;
-  description: string;
-  credits: number;
-}
-
+    id: number;
+    code: string;
+    title: string;
+    description: string;
+    credits: number;
+  }
 interface CourseListProps {
   courses: Course[];
 }
 
 const CourseList: React.FC<CourseListProps> = ({ courses }) => {
   return (
-    <div className="course-list">
+    <div className="course-section">
       {courses.map((course) => (
-        <CourseCard key={course.id} course={course} />
+        <div key={course.id} className="course-card">
+          <h3>{course.code}: {course.title}</h3>
+          <p>{course.description}</p>
+          <p><strong>Credits:</strong> {course.credits}</p>
+          <button className="view-course-btn">View Course</button>
+        </div>
       ))}
     </div>
   );

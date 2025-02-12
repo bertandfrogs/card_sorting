@@ -1,6 +1,12 @@
 import React from "react";
-import { Course } from "../types";
 
+interface Course {
+    id: number;
+    code: string;
+    title: string;
+    description: string;
+    credits: number;
+  }
 interface CourseListProps {
   courses: Course[];
 }

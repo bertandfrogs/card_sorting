@@ -4,6 +4,7 @@ import SearchBar from "./components/SearchBar";
 import Filters from "./components/Filters";
 import CourseList from "./components/CourseList";
 import coursesData from "./assets/courses.json";
+import { Helmet } from "react-helmet-async";
 import "./styles.css";
 
 interface Course {
@@ -23,20 +24,26 @@ const App: React.FC = () => {
   );
 
   return (
-    <Layout>
-      <div className="catalog-container">
-        {/* Left Section: Search and Filters */}
-        <div className="sidebar">
-          <SearchBar setSearchTerm={setSearchTerm} />
-          <Filters />
-        </div>
+    <>
+      <Helmet>
+        <title>BYU Course Catalog</title>
+        <link rel="icon" type="image/svg" href="/favicon.svg" />
+      </Helmet>
+      <Layout>
+        <div className="catalog-container">
+          {/* Left Section: Search and Filters */}
+          <div className="sidebar">
+            <SearchBar setSearchTerm={setSearchTerm} />
+            <Filters />
+          </div>
 
-        {/* Right Section: Course List */}
-        <div className="course-section">
-          <CourseList courses={filteredCourses} />
+          {/* Right Section: Course List */}
+          <div className="course-section">
+            <CourseList courses={filteredCourses} />
+          </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 

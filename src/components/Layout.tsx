@@ -10,9 +10,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {/* Header */}
       <header className="header">
         <h1>BYU Undergraduate Catalog</h1>
-        <nav>
-          <div className="menu-icon">☰</div>
-        </nav>
+        <div className="hamburger-menu">
+			<span className="fa-solid fa-bars fa hamburger"></span>
+        </div>
       </header>
 
       {/* Main Content Area */}

@@ -23,9 +23,26 @@ body {
 	margin: 0;
 }
 
-.menu-icon {
-	font-size: 24px;
-	cursor: pointer;
+/* corrects the misalignment problem with fa icons */
+.fa {
+    transform: translate(4%, 4%);
+}
+
+.hamburger-menu {
+	width: 2vw;
+    height: 2vw;
+	padding: 5px;
+    border-radius: 25%;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.10);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger-menu:hover {
+    background-color: rgba(0, 0, 0, 0.25);
 }
 
 .main-content {

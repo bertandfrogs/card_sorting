@@ -6,6 +6,7 @@ interface Course {
   title: string;
   description: string;
   credits: number;
+  semesters: string[];
 }
 
 interface CourseCardProps {

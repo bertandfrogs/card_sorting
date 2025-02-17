@@ -1,16 +1,22 @@
 import React from "react";
 
-const Filters: React.FC = () => {
+interface FiltersProps {
+  setSelectedLevel: (level: string) => void;
+  setSelectedCredits: (credits: string) => void;
+  setSelectedSemester: (semester: string) => void;
+}
+
+const Filters: React.FC<FiltersProps> = ({ setSelectedLevel, setSelectedCredits, setSelectedSemester }) => {
   return (
     <div className="filters">
       <div className="filter-group">
         <label>Course Level</label>
-        <select>
+        <select onChange={(e) => setSelectedLevel(e.target.value)}>
           <option value="">All</option>
-          <option value="100">100 Level</option>
-          <option value="200">200 Level</option>
-          <option value="300">300 Level</option>
-          <option value="400">400 Level</option>
+          <option value="1">100 Level</option>
+          <option value="2">200 Level</option>
+          <option value="3">300 Level</option>
+          <option value="4">400 Level</option>
         </select>
       </div>
 
@@ -24,7 +30,7 @@ const Filters: React.FC = () => {
 
       <div className="filter-group">
         <label>Credit Hours</label>
-        <select>
+        <select onChange={(e) => setSelectedCredits(e.target.value)}>
           <option value="">All</option>
           <option value="0.5">0.5 Credits</option>
           <option value="2">2.0 Credits</option>
@@ -35,7 +41,7 @@ const Filters: React.FC = () => {
 
       <div className="filter-group">
         <label>Semesters Offered</label>
-        <select>
+        <select onChange={(e) => setSelectedSemester(e.target.value)}>
           <option value="">All</option>
           <option value="Fall">Fall</option>
           <option value="Winter">Winter</option>

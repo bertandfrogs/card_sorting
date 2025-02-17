@@ -3,25 +3,43 @@ import Layout from "./components/Layout.tsx";
 import SearchBar from "./components/SearchBar";
 import Filters from "./components/Filters";
 import CourseList from "./components/CourseList";
-import coursesData from "./assets/courses.json";
+import coursesDataRaw from "./assets/courses.json"; // Fix for JSON import
 import { Helmet } from "react-helmet-async";
 import "./styles.css";
 
 interface Course {
   id: number;
+  level: number;
   code: string;
   title: string;
   description: string;
   credits: number;
+  semesters: string[];
 }
+
+const coursesData = coursesDataRaw as Course[];
 
 const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [selectedLevel, setSelectedLevel] = useState<string>("");
+  const [selectedCredits, setSelectedCredits] = useState<string>("");
+  const [selectedSemester, setSelectedSemester] = useState<string>("");
 
-  const filteredCourses = coursesData.filter((course: Course) =>
-    course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    course.code.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredCourses = coursesData
+    .filter((course: Course) =>
+      searchTerm === "" ||
+      course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      course.code.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .filter((course: Course) =>
+      selectedLevel === "" || course.level === parseInt(selectedLevel)
+    )
+    .filter((course: Course) =>
+      selectedCredits === "" || course.credits.toString() === selectedCredits
+    )
+    .filter((course: Course) =>
+      selectedSemester === "" || course.semesters.includes(selectedSemester)
+    );
 
   return (
     <>
@@ -34,7 +52,11 @@ const App: React.FC = () => {
           {/* Left Section: Search and Filters */}
           <div className="sidebar">
             <SearchBar setSearchTerm={setSearchTerm} />
-            <Filters />
+            <Filters
+              setSelectedLevel={setSelectedLevel}
+              setSelectedCredits={setSelectedCredits}
+              setSelectedSemester={setSelectedSemester}
+            />
           </div>
 
           {/* Right Section: Course List */}

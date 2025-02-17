@@ -6,7 +6,8 @@
       "title": "Introduction to Computer Science",
       "description": "Teaches how to design, develop, reason about, and test programs.",
       "credits": 3.0,
-      "semesters": ["Fall", "Winter"]
+      "semesters": ["Fall", "Winter"],
+      "instructors": ["John Doe", "John Smith", "John Ham"]
     },
     {
       "id": 2,
@@ -15,7 +16,8 @@
       "title": "Exploring Computer Science",
       "description": "Introduction to the discipline of computer science and its fields.",
       "credits": 0.5,
-      "semesters": ["Fall", "Winter"]
+      "semesters": ["Fall", "Winter"],
+      "instructors": ["John Doe", "John Smith", "John Ham"]
     },
     {
       "id": 3,
@@ -24,7 +26,8 @@
       "title": "Introduction to Computer Systems",
       "description": "How a computer works to execute sequential code.",
       "credits": 3.0,
-      "semesters": ["Fall", "Winter"]
+      "semesters": ["Fall", "Winter"],
+      "instructors": ["John Doe", "John Smith", "John Ham"]
     },
     {
       "id": 4,
@@ -33,7 +36,8 @@
       "title": "Data Structures and Algorithms",
       "description": "Fundamental data structures and algorithms of computer science.",
       "credits": 3.0,
-      "semesters": ["Fall", "Winter"]
+      "semesters": ["Fall", "Winter"],
+      "instructors": ["John Doe", "John Smith", "John Ham"]
     }
 ]
   

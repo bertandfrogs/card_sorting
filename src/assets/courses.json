@@ -6,8 +6,8 @@
       "title": "Introduction to Computer Science",
       "description": "Teaches how to design, develop, reason about, and test programs.",
       "credits": 3.0,
-      "semesters": ["Fall", "Winter"],
-      "instructors": ["John Doe", "John Smith", "John Ham"]
+      "semesters": ["Fall", "Winter", "Spring", "Summer"],
+      "instructors": ["Steven Giles", "Steve Richardson", "Tom Stephens", "Nancy Fulda"]
     },
     {
       "id": 2,
@@ -27,7 +27,7 @@
       "description": "How a computer works to execute sequential code.",
       "credits": 3.0,
       "semesters": ["Fall", "Winter"],
-      "instructors": ["John Doe", "John Smith", "John Ham"]
+      "instructors": ["Eric Mercer", "Chris Archibald", "Mark Clement"]
     },
     {
       "id": 4,
@@ -36,8 +36,48 @@
       "title": "Data Structures and Algorithms",
       "description": "Fundamental data structures and algorithms of computer science.",
       "credits": 3.0,
+      "semesters": ["Fall", "Winter", "Spring"],
+      "instructors": ["Tom Stephens", "Gordon Bean"]
+    },
+    {
+      "id": 5,
+      "level": 2,
+      "code": "CS 236",
+      "title": "Discrete Data Structures",
+      "description": "Fundamentals of logic, proofs, sets, functions, relations, and combinatorics for computer science.",
+      "credits": 3.0,
+      "semesters": ["Fall", "Winter", "Spring"],
+      "instructors": ["Cory Barker"]
+    },
+    {
+      "id": 6,
+      "level": 3,
+      "code": "CS 356",
+      "title": "Advanced Techniques in Human Computer Interaction",
+      "description": "Explores advanced HCI principles, usability testing, and user-centered design techniques.",
+      "credits": 3.0,
       "semesters": ["Fall", "Winter"],
-      "instructors": ["John Doe", "John Smith", "John Ham"]
+      "instructors": ["Ken Jenson"]
+    },
+    {
+      "id": 7,
+      "level": 4,
+      "code": "CS 404",
+      "title": "Ethics & Computers in Society",
+      "description": "Examines ethical, social, and legal issues in computing and technology.",
+      "credits": 2.0,
+      "semesters": ["Fall", "Winter"],
+      "instructors": ["Darin Gates"]
+    },
+    {
+      "id": 8,
+      "level": 2,
+      "code": "CS 240",
+      "title": "Advanced Software Construction",
+      "description": "Data structures, algorithms, memory management, and software engineering principles.",
+      "credits": 4.0,
+      "semesters": ["Fall", "Winter", "Spring", "Summer"],
+      "instructors": ["Jerod Wilkerson", "Ken Rodham"]
     }
 ]
   

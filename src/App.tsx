@@ -2,20 +2,10 @@ import React, { useState } from "react";
 import Layout from "./components/Layout.tsx";
 import SearchBar from "./components/SearchBar";
 import Filters from "./components/Filters";
-import CourseList from "./components/CourseList";
+import CourseList, { Course } from "./components/CourseList";
 import coursesDataRaw from "./assets/courses.json"; // Fix for JSON import
 import { Helmet } from "react-helmet-async";
 import "./styles.css";
-
-interface Course {
-  id: number;
-  level: number;
-  code: string;
-  title: string;
-  description: string;
-  credits: number;
-  semesters: string[];
-}
 
 const coursesData = coursesDataRaw as Course[];
 

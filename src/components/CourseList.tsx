@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 
-interface Course {
+export interface Course {
     id: number;
+	level: number;
     code: string;
     title: string;
     description: string;
     credits: number;
+	semesters: string[];
+    instructors: string[];
   }
 interface CourseListProps {
   courses: Course[];

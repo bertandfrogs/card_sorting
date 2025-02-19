@@ -50,9 +50,7 @@ const App: React.FC = () => {
           </div>
 
           {/* Right Section: Course List */}
-          <div className="course-section">
-            <CourseList courses={filteredCourses} />
-          </div>
+			<CourseList courses={filteredCourses} />
         </div>
       </Layout>
     </>

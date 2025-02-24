@@ -17,34 +17,28 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, course }) => {
   if (!isOpen || !course) return null;
 
+  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose(); // Close modal if clicked on overlay
+    }
+  };
+
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay" onClick={handleOverlayClick}>
       <div className="modal-content">
-        <h2 className="modal-title">{course.code}: {course.title}</h2>
+        {/* Close button positioned at the top-right */}
+        <button onClick={onClose} className="close-btn">✖</button>
 
-        <div className="modal-grid">
-          <div className="grid-item description">
-            <h3>Description</h3>
-            <p>{course.description}</p>
-          </div>
+        <h2 className="modal-title">
+          {course.code}: {course.title}
+        </h2>
 
-          <div className="grid-item credits">
-            <h3>Credits</h3>
-            <p>{course.credits}</p>
-          </div>
-
-          <div className="grid-item semesters">
-            <h3>Semesters Offered</h3>
-            <p>{course.semesters.join(", ")}</p>
-          </div>
-
-          <div className="grid-item instructors">
-            <h3>Instructors</h3>
-            <p>{course.instructors.join(", ")}</p>
-          </div>
+        <div className="modal-body">
+          <p><strong>Description:</strong> {course.description}</p>
+          <p><strong>Credits:</strong> {course.credits}</p>
+          <p><strong>Semesters Offered:</strong> {course.semesters.join(", ")}</p>
+          <p><strong>Instructors:</strong> {course.instructors.join(", ")}</p>
         </div>
-
-        <button onClick={onClose} className="close-btn">Close</button>
       </div>
     </div>
   );

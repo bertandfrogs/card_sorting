@@ -172,7 +172,7 @@ body {
 	border-radius: 5px;
 }
 
-/* Modal Overlay */
+/* Modal Overlay (Ensures clicking outside closes modal) */
 .modal-overlay {
 	position: fixed;
 	top: 0;
@@ -184,96 +184,54 @@ body {
 	align-items: center;
 	justify-content: center;
 	z-index: 1000;
-  }
-  
-  /* Modal Content */
-  .modal-content {
+}
+
+/* Modal Content */
+.modal-content {
 	background: white;
 	padding: 25px;
 	border-radius: 10px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-	max-width: 700px;
+	max-width: 500px;
 	width: 90%;
+	position: relative; /* Needed for absolute positioning of the close button */
 	display: flex;
 	flex-direction: column;
-	align-items: center; /* Centers everything inside */
-	gap: 20px;
-  }
-  
-  /* Modal Title with a Box */
-  .modal-title {
-	background: #f8f9fa;
-	padding: 15px;
-	border-radius: 8px;
-	text-align: center;
-	font-size: 20px;
-	font-weight: bold;
-	width: 80%;
-	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Grid Layout */
-  .modal-grid {
-	display: grid;
-	grid-template-columns: repeat(5, 1fr); /* 5-column grid */
-	gap: 15px;
-	width: 100%; /* Ensures the grid takes full modal width */
-  }
-  
-  /* Grid Items */
-  .grid-item {
-	background: #f8f9fa;
-	padding: 12px;
-	border-radius: 8px;
-	text-align: center;
-	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Grid Item Titles */
-  .grid-item h3 {
-	margin: 0;
-	font-size: 16px;
-	color: #333;
-	font-weight: bold;
-  }
-  
-  .grid-item p {
-	margin: 5px 0 0;
-	font-size: 14px;
-	color: #555;
-  }
-  
-  /* Grid Column Layouts */
-  .description {
-	grid-column: span 4;
-  }
-  
-  .credits {
-	grid-column: span 1;
-  }
-  
-  .semesters {
-	grid-column: span 2;
-  }
-  
-  .instructors {
-	grid-column: span 3;
-  }
-  
-  /* Close Button */
-  .close-btn {
-	background: #d9534f;
-	color: white;
+	gap: 15px; /* Space between sections */
+	align-items: flex-start;
+}
+
+/* Close Button (Positioned in the top-right) */
+.close-btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background: none;
 	border: none;
-	padding: 12px 18px;
+	font-size: 20px;
 	cursor: pointer;
-	border-radius: 6px;
+	color: #333;
+	transition: color 0.2s ease-in-out;
+}
+
+.close-btn:hover {
+	color: #c9302c;
+}
+
+/* Modal Title */
+.modal-title {
+	font-size: 22px;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+}
+
+/* Modal Body (Readability) */
+.modal-body {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 	font-size: 16px;
-	align-self: center;
-	transition: background 0.2s ease-in-out;
-  }
-  
-  .close-btn:hover {
-	background: #c9302c;
-  }
+	color: #555;
+}
   

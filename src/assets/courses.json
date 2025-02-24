@@ -4,7 +4,7 @@
       "level": 1,
       "code": "CS 111",
       "title": "Introduction to Computer Science",
-      "description": "Teaches how to design, develop, reason about, and test programs.",
+      "description": "Teaches how to design, develop, reason about, and test programs. Topics include higher-order functions, object-oriented programming, recursion, algorithms, data structures, decomposition, interpreters, and regular expressions.",
       "credits": 3.0,
       "semesters": ["Fall", "Winter", "Spring", "Summer"],
       "instructors": ["Steven Giles", "Steve Richardson", "Tom Stephens", "Nancy Fulda"]

@@ -33,8 +33,8 @@ const CourseList: React.FC<CourseListProps> = ({ courses }) => {
     <div className="course-section">
       {courses.map((course) => (
         <div key={course.id} className="course-card" onClick={() => handleOpenModal(course)}>
-          <h3>{course.code}: {course.title}</h3>
-          <p>{course.description}</p>
+          <h3 className="course-card-header">{course.code}: {course.title}</h3>
+          <p className="course-description">{course.description}</p>
           <p><strong>Credits:</strong> {course.credits}</p>
           <button className="view-course-btn">
             View Course

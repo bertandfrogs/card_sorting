@@ -139,7 +139,6 @@ body {
 	border: 1px solid #ccc;
 }
 
-/* Course List */
 .course-section {
 	width: 75%;
 	display: grid;
@@ -151,7 +150,7 @@ body {
 /* Course Cards */
 .course-card {
 	min-width: 300px;
-	max-height: 200px;
+	max-height: 220px;
 	border: 1px solid #ddd;
 	padding: 15px;
 	border-radius: 8px;
@@ -160,8 +159,25 @@ body {
   	transition: transform 0.2s ease-in-out;
 }
 
+.course-card-header {
+	min-height: 40px;
+}
+
 .course-card:hover {
 	transform: translateY(-3px);
+}
+
+.course-description {
+	min-height: 55px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+	display: box;
+    -webkit-line-clamp: 3; /* Limits to 3 lines */
+	line-clamp: 3;
+    -webkit-box-orient: vertical;
+	box-orient: vertical;
+    word-break: break-word;
 }
 
 .view-course-btn {

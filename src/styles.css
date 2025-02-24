@@ -139,8 +139,12 @@ body {
 	border: 1px solid #ccc;
 }
 
-.course-section {
+.course-list {
 	width: 75%;
+}
+
+.course-grid {
+	width: 100%;
 	display: grid;
   	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ensures cards fit dynamically */
   	gap: 15px;
@@ -186,6 +190,43 @@ body {
 	padding: 5px 10px;
 	text-decoration: none;
 	border-radius: 5px;
+}
+
+/* Pagination Controls */
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.pagination-controls select {
+    padding: 5px;
+    font-size: 16px;
+}
+
+/* Pagination Buttons */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.pagination button {
+    background-color: #002e5d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
 /* Modal Overlay (Ensures clicking outside closes modal) */

@@ -18,6 +18,15 @@ interface CourseListProps {
 const CourseList: React.FC<CourseListProps> = ({ courses }) => {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [coursesPerPage, setCoursesPerPage] = useState(6); // Default courses per page
+
+  // Calculate indexes for slicing
+  const indexOfLastCourse = currentPage * coursesPerPage;
+  const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
+  const currentCourses = courses.slice(indexOfFirstCourse, indexOfLastCourse);
+
+  const totalPages = Math.ceil(courses.length / coursesPerPage);
 
   const handleOpenModal = (course: Course) => {
     setSelectedCourse(course);
@@ -29,18 +38,55 @@ const CourseList: React.FC<CourseListProps> = ({ courses }) => {
     setSelectedCourse(null);
   };
 
+  // Change page
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  // Change courses per page
+  const handleCoursesPerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setCoursesPerPage(Number(event.target.value));
+    setCurrentPage(1); // Reset to first page when changing per-page limit
+  };
+
   return (
-    <div className="course-section">
-      {courses.map((course) => (
-        <div key={course.id} className="course-card" onClick={() => handleOpenModal(course)}>
-          <h3 className="course-card-header">{course.code}: {course.title}</h3>
-          <p className="course-description">{course.description}</p>
-          <p><strong>Credits:</strong> {course.credits}</p>
-          <button className="view-course-btn">
-            View Course
-          </button>
-        </div>
-      ))}
+    <div className="course-list">
+      {/* Pagination Controls */}
+      <div className="pagination-controls">
+        <label>Courses per page:</label>
+        <select value={coursesPerPage} onChange={handleCoursesPerPageChange}>
+          <option value="3">3</option>
+          <option value="6">6</option>
+          <option value="9">9</option>
+          <option value="12">12</option>
+        </select>
+      </div>
+
+      {/* Course Cards */}
+      <div className="course-grid">
+        {currentCourses.map((course) => (
+          <div key={course.id} className="course-card" onClick={() => handleOpenModal(course)}>
+            <h3 className="course-card-header">{course.code}: {course.title}</h3>
+            <p className="course-description">{course.description}</p>
+            <p><strong>Credits:</strong> {course.credits}</p>
+            <button className="view-course-btn">
+              View Course
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {/* Pagination Buttons */}
+      <div className="pagination">
+        <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
+          Previous
+        </button>
+
+        <span>Page {currentPage} of {totalPages}</span>
+
+        <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === totalPages}>
+          Next
+        </button>
+      </div>
+
       {/* Modal Component */}
       <Modal isOpen={isModalOpen} onClose={handleCloseModal} course={selectedCourse} />
     </div>

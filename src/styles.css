@@ -145,6 +145,7 @@ body {
 	display: grid;
   	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ensures cards fit dynamically */
   	gap: 15px;
+	align-items: stretch;
 }
 
 /* Course Cards */

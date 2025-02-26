@@ -46,13 +46,23 @@ const Filters: React.FC<FiltersProps> = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Function to render selected filters outside the dropdown
-  const renderSelectedFilters = (selectedItems: string[], labelFormatter: (item: string) => string) => {
+  // Function to remove a selected filter when clicking "X"
+  const removeFilter = (setState: React.Dispatch<React.SetStateAction<string[]>>, value: string) => {
+    setState((prev) => prev.filter((item) => item !== value));
+  };
+
+  // Function to render selected filters with "X" button
+  const renderSelectedFilters = (
+    selectedItems: string[],
+    setState: React.Dispatch<React.SetStateAction<string[]>>,
+    labelFormatter: (item: string) => string
+  ) => {
     return selectedItems.length > 0 ? (
       <div className="selected-filters">
         {selectedItems.map((item) => (
           <span key={item} className="selected-filter">
             {labelFormatter(item)}
+            <button className="remove-filter-btn" onClick={() => removeFilter(setState, item)}>✖</button>
           </span>
         ))}
       </div>
@@ -65,8 +75,11 @@ const Filters: React.FC<FiltersProps> = ({
       <div className="filter-group">
         <button className="dropdown-btn" onClick={() => toggleDropdown("levels")}>
           Course Level {selectedLevels.length > 0 ? `(${selectedLevels.length})` : ""}
+          <span className={`dropdown-arrow ${openDropdown === "levels" ? "open" : ""}`}>
+            {openDropdown === "levels" ? <i className="fa-solid fa-angle-up"></i> : <i className="fa-solid fa-angle-down"></i>}
+          </span>
         </button>
-        {renderSelectedFilters(selectedLevels, (level) => `${level}00 Level`)}
+        {renderSelectedFilters(selectedLevels, setSelectedLevels, (level) => `${level}00 Level`)}
         <div className={`dropdown-content ${openDropdown === "levels" ? "open" : ""}`}>
           {["1", "2", "3", "4"].map((level) => (
             <label key={level} className={selectedLevels.includes(level) ? "selected" : ""}>
@@ -86,8 +99,11 @@ const Filters: React.FC<FiltersProps> = ({
       <div className="filter-group">
         <button className="dropdown-btn" onClick={() => toggleDropdown("credits")}>
           Credit Hours {selectedCredits.length > 0 ? `(${selectedCredits.length})` : ""}
+          <span className={`dropdown-arrow ${openDropdown === "credits" ? "open" : ""}`}>
+            {openDropdown === "credits" ? <i className="fa-solid fa-angle-up"></i> : <i className="fa-solid fa-angle-down"></i>}
+          </span>
         </button>
-        {renderSelectedFilters(selectedCredits, (credit) => `${credit} Credits`)}
+        {renderSelectedFilters(selectedCredits, setSelectedCredits, (credit) => `${credit} Credits`)}
         <div className={`dropdown-content ${openDropdown === "credits" ? "open" : ""}`}>
           {["0.5", "2", "3", "4"].map((credit) => (
             <label key={credit} className={selectedCredits.includes(credit) ? "selected" : ""}>
@@ -107,8 +123,11 @@ const Filters: React.FC<FiltersProps> = ({
       <div className="filter-group">
         <button className="dropdown-btn" onClick={() => toggleDropdown("semesters")}>
           Semesters {selectedSemesters.length > 0 ? `(${selectedSemesters.length})` : ""}
+          <span className={`dropdown-arrow ${openDropdown === "semesters" ? "open" : ""}`}>
+            {openDropdown === "semesters" ? <i className="fa-solid fa-angle-up"></i> : <i className="fa-solid fa-angle-down"></i>}
+          </span>
         </button>
-        {renderSelectedFilters(selectedSemesters, (semester) => semester)}
+        {renderSelectedFilters(selectedSemesters, setSelectedSemesters, (semester) => semester)}
         <div className={`dropdown-content ${openDropdown === "semesters" ? "open" : ""}`}>
           {["Fall", "Winter", "Spring", "Summer"].map((semester) => (
             <label key={semester} className={selectedSemesters.includes(semester) ? "selected" : ""}>
@@ -128,8 +147,11 @@ const Filters: React.FC<FiltersProps> = ({
       <div className="filter-group">
         <button className="dropdown-btn" onClick={() => toggleDropdown("instructors")}>
           Instructors {selectedInstructors.length > 0 ? `(${selectedInstructors.length})` : ""}
+          <span className={`dropdown-arrow ${openDropdown === "instructors" ? "open" : ""}`}>
+            {openDropdown === "instructors" ? <i className="fa-solid fa-angle-up"></i> : <i className="fa-solid fa-angle-down"></i>}
+          </span>
         </button>
-        {renderSelectedFilters(selectedInstructors, (instructor) => instructor)}
+        {renderSelectedFilters(selectedInstructors, setSelectedInstructors, (instructor) => instructor)}
         <div className={`dropdown-content ${openDropdown === "instructors" ? "open" : ""}`}>
           {allInstructors.map((instructor) => (
             <label key={instructor} className={selectedInstructors.includes(instructor) ? "selected" : ""}>

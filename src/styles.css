@@ -6,32 +6,33 @@
 	--box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 	--theme-navy-light: #003a78;
 	--theme-navy: #002e5d;
-	--theme-navy-dark: #00254A;
+	--theme-navy-dark: #00254a;
 	--theme-white: white;
 	--theme-light-white: #f4f4f4;
 	--theme-light-gray: #f8f9fa;
 }
 
 body {
-  }
-  
-  body {
 	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
 	background-color: #f4f4f4;
-  }
-  
-  .layout {
+}
+
+.layout {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-  }
-  
-  .header {
+}
+
+.header {
 	height: var(--header-height);
 	background: var(--theme-navy);
-	background: linear-gradient(-45deg, var(--theme-navy) 0%, var(--theme-navy-light) 100%);
+	background: linear-gradient(
+		-45deg,
+		var(--theme-navy) 0%,
+		var(--theme-navy-light) 100%
+	);
 	color: white;
 	padding: 15px;
 	display: flex;
@@ -41,17 +42,17 @@ body {
 	top: 0;
 	box-shadow: var(--box-shadow);
 	z-index: 5;
-  }
-  
-  .header h1 {
+}
+
+.header h1 {
 	margin: 0;
-  }
-  
-  .fa {
+}
+
+.fa {
 	transform: translate(4%, 4%);
-  }
-  
-  .hamburger-menu {
+}
+
+.hamburger-menu {
 	width: 2vw;
 	height: 2vw;
 	padding: 5px;
@@ -62,13 +63,13 @@ body {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-  }
-  
-  .hamburger-menu:hover {
+}
+
+.hamburger-menu:hover {
 	background-color: rgba(0, 0, 0, 0.25);
-  }
-  
-  .main-content {
+}
+
+.main-content {
 	flex-grow: 1;
 	display: flex;
 	padding: var(--main-padding);
@@ -76,7 +77,11 @@ body {
 
 .footer {
 	background: var(--theme-navy);
-	background: linear-gradient(-45deg, var(--theme-navy) 0%, var(--theme-navy-light) 100%);
+	background: linear-gradient(
+		-45deg,
+		var(--theme-navy) 0%,
+		var(--theme-navy-light) 100%
+	);
 	color: white;
 	text-align: center;
 	padding: 10px;
@@ -84,15 +89,15 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-  }
-  
-  .catalog-container {
+}
+
+.catalog-container {
 	display: flex;
 	width: 100%;
 	gap: 20px;
-  }
-  
-  .sidebar {
+}
+
+.sidebar {
 	width: 25%;
 	display: flex;
 	flex-direction: column;
@@ -102,51 +107,54 @@ body {
 	border-radius: 8px;
 	box-shadow: var(--box-shadow);
 	position: sticky;
-	top: calc(var(--header-height) + var(--header-footer-padding) + var(--main-padding));
+	top: calc(
+		var(--header-height) + var(--header-footer-padding) +
+			var(--main-padding)
+	);
 	height: fit-content;
-  }
-  
-  /* Search Bar */
-  .search-bar {
+}
+
+/* Search Bar */
+.search-bar {
 	display: flex;
 	align-items: center;
 	background: white;
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	padding: 8px;
-  }
-  
-  .search-bar input {
+}
+
+.search-bar input {
 	border: none;
 	outline: none;
 	width: 100%;
 	padding: 5px;
 	font-size: 16px;
-  }
-  
-  .search-bar button {
+}
+
+.search-bar button {
 	background: none;
 	border: none;
 	cursor: pointer;
 	font-size: 18px;
-  }
-  
-  /* Filters Section */
-  .filters {
+}
+
+/* Filters Section */
+.filters {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-  }
-  
-  .filter-group {
+}
+
+.filter-group {
 	position: relative;
-  }
-  
-  /* Dropdown Button */
-  .dropdown-btn {
+}
+
+/* Dropdown Button */
+.dropdown-btn {
 	width: 100%;
 	padding: 10px;
-	background: #00254A;
+	background: #00254a;
 	color: white;
 	border: none;
 	cursor: pointer;
@@ -154,14 +162,14 @@ body {
 	font-size: 16px;
 	border-radius: 5px;
 	transition: background 0.2s ease-in-out;
-  }
-  
-  .dropdown-btn:hover {
-	background: #00254A;
-  }
-  
-  /* Dropdown Content */
-  .dropdown-content {
+}
+
+.dropdown-btn:hover {
+	background: #00254a;
+}
+
+/* Dropdown Content */
+.dropdown-content {
 	position: absolute;
 	background: white;
 	border: 1px solid #ddd;
@@ -175,50 +183,50 @@ body {
 	padding: 8px;
 	border-radius: 5px;
 	transition: all 0.3s ease-in-out;
-  }
-  
-  /* When dropdown is open */
-  .dropdown-content.open {
+}
+
+/* When dropdown is open */
+.dropdown-content.open {
 	display: flex;
-  }
-  
-  /* Keep selected filters visible when dropdown is closed */
-  .selected-filters {
+}
+
+/* Keep selected filters visible when dropdown is closed */
+.selected-filters {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 5px;
 	margin-top: 5px;
 	padding: 5px;
-  }
-  
-  .selected-filter {
-	background: #00254A;
+}
+
+.selected-filter {
+	background: #00254a;
 	color: white;
 	padding: 5px 8px;
 	border-radius: 5px;
 	font-size: 14px;
 	cursor: default;
-  }
-  
-  /* Filter Options */
-  .dropdown-content label {
+}
+
+/* Filter Options */
+.dropdown-content label {
 	padding: 5px 10px;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
 	transition: background 0.2s ease-in-out;
-  }
-  
-  .dropdown-content label input {
+}
+
+.dropdown-content label input {
 	margin-right: 10px;
-  }
-  
-  .dropdown-content label:hover {
+}
+
+.dropdown-content label:hover {
 	background: #f1f1f1;
-  }
-  
-  /* Reset Button */
-  .reset-button {
+}
+
+/* Reset Button */
+.reset-button {
 	margin-top: 10px;
 	padding: 8px 12px;
 	background-color: #c51515;
@@ -226,31 +234,30 @@ body {
 	border: none;
 	cursor: pointer;
 	justify-content: space-between;
-	background: var(--theme-white);
 	padding: 10px;
 	border-radius: 5px;
 	transition: background 0.2s;
-  }
-  
-  .reset-button:hover {
+}
+
+.reset-button:hover {
 	background-color: #cc0000;
-  }
-  
-  /* Course List */
-  .course-list {
+}
+
+/* Course List */
+.course-list {
 	width: 75%;
-  }
-  
-  .course-grid {
+}
+
+.course-grid {
 	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 15px;
 	align-items: stretch;
-  }
-  
-  /* Course Cards */
-  .course-card {
+}
+
+/* Course Cards */
+.course-card {
 	box-sizing: border-box;
 	min-width: 300px;
 	border: 1px solid #ddd;
@@ -262,10 +269,10 @@ body {
 	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 	transition: transform 0.2s ease-in-out;
 	display: grid;
-  }
-  
-  .course-card-header {
-	background: #00254A;
+}
+
+.course-card-header {
+	background: #00254a;
 	font-family: "Nunito";
 	font-weight: 700;
 	font-size: larger;
@@ -274,9 +281,9 @@ body {
 	padding: 15px;
 	color: var(--theme-white);
 	align-content: center;
-  }
-  
-  .course-card:hover {
+}
+
+.course-card:hover {
 	transform: translateY(-3px);
 }
 
@@ -308,6 +315,11 @@ body {
 	border: 1px solid var(--theme-navy);
 	box-shadow: var(--box-shadow);
 	cursor: pointer;
+	transition: background ease-in-out .2s;
+}
+
+.view-course-btn:hover {
+	background-color: #b7c1cb;
 }
 
 .course-btn-text {
@@ -318,22 +330,22 @@ body {
 
 /* Pagination Controls */
 .pagination-controls {
-  }
-  
-  /* Pagination */
-  .pagination-controls {
+}
+
+/* Pagination */
+.pagination-controls {
 	display: flex;
 	align-items: center;
 	gap: 10px;
 	margin-bottom: 10px;
-  }
-  
-  .pagination-controls select {
+}
+
+.pagination-controls select {
 	padding: 5px;
 	font-size: 16px;
-  }
-  
-  .pagination {
+}
+
+.pagination {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -349,15 +361,15 @@ body {
 	cursor: pointer;
 	border-radius: 5px;
 	font-size: 14px;
-  }
-  
-  .pagination button:disabled {
+}
+
+.pagination button:disabled {
 	background-color: #ccc;
 	cursor: not-allowed;
-  }
-  
-  /* Modal Overlay */
-  .modal-overlay {
+}
+
+/* Modal Overlay */
+.modal-overlay {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -368,10 +380,10 @@ body {
 	align-items: center;
 	justify-content: center;
 	z-index: 1000;
-  }
-  
-  /* Modal Content */
-  .modal-content {
+}
+
+/* Modal Content */
+.modal-content {
 	background: white;
 	padding: 25px;
 	border-radius: 10px;
@@ -383,10 +395,10 @@ body {
 	flex-direction: column;
 	gap: 15px;
 	align-items: flex-start;
-  }
-  
-  /* Close Button */
-  .close-btn {
+}
+
+/* Close Button */
+.close-btn {
 	position: absolute;
 	top: 10px;
 	right: 10px;
@@ -396,9 +408,8 @@ body {
 	cursor: pointer;
 	color: #333;
 	transition: color 0.2s ease-in-out;
-  }
-  
-  .close-btn:hover {
+}
+
+.close-btn:hover {
 	color: #c9302c;
-  }
-  
+}

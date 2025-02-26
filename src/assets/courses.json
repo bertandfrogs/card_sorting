@@ -78,6 +78,226 @@
       "credits": 4.0,
       "semesters": ["Fall", "Winter", "Spring", "Summer"],
       "instructors": ["Jerod Wilkerson", "Ken Rodham"]
-    }
+    },
+    {
+      "id": 9,
+      "level": 1,
+      "code": "CS 110",
+      "title": "How to Program",
+      "description": "Introduction to programming and computer science for those with no prior programming experience.",
+      "credits": 3.0,
+      "semesters": ["Fall", "Winter", "Spring"],
+      "instructors": ["Gordon Bean", "Duane Dougal"]
+  },
+  {
+      "id": 10,
+      "level": 1,
+      "code": "CS 180",
+      "title": "Intro to Data Science",
+      "description": "This course is a broad, interdisciplinary look at the field of data science, and how to derive insight from data. ",
+      "credits": 3.0,
+      "semesters": ["Winter"],
+      "instructors": ["David Wingate"]
+  },
+  {
+      "id": 11,
+      "level": 1,
+      "code": "CS 191",
+      "title": "Exploring CS",
+      "description": "Introduction to the discipline of computer science and its fields. ",
+      "credits": 0.5,
+      "semesters": ["Fall", "Winter"],
+      "instructors": ["Porter Jenkins"]
+  },
+  {
+      "id": 12,
+      "level": 1,
+      "code": "CS 199",
+      "title": "Academic Internship",
+      "description": "Internships or cooperative education experiences with organizations outside BYU.",
+      "credits": 3.0,
+      "semesters": ["Fall", "Winter"],
+      "instructors": ["TBD"]
+  },
+  {
+      "id": 13,
+      "level": 2,
+      "code": "CS 202",
+      "title": "Software Engineering Lab 1",
+      "description": "The first of three experiential learning labs that will provide students with hands-on experience ",
+      "credits": 1.0,
+      "semesters": ["Fall", "Winter"],
+      "instructors": ["Jerod Wilkerson"]
+  },
+  {
+      "id": 14,
+      "level": 2,
+      "code": "CS 245",
+      "title": "Database Principles",
+      "description": "Fundamentals of database design and SQL programming.",
+      "credits": 3.0,
+      "semesters": ["Fall", "Winter", "Spring"],
+      "instructors": ["Porter Jenkins"]
+  },
+  {
+      "id": 15,
+      "level": 2,
+      "code": "CS 252",
+      "title": "Introduction to Computational Theory",
+      "description": "Introduction to front-end and back-end web technologies.",
+      "credits": 3.0,
+      "semesters": ["Fall", "Winter"],
+      "instructors": ["Cory Barker"]
+  },
+  {
+    "id": 24,
+    "level": 2,
+    "code": "CS 203",
+    "title": "Software Engineering Lab 2",
+    "description": "The second of three experiential learning labs that provide students with hands-on experience with software engineering tools and techniques.",
+    "credits": 1.0,
+    "semesters": ["Fall", "Winter"],
+    "instructors": ["Jerod Wilkerson"]
+},
+{
+    "id": 25,
+    "level": 2,
+    "code": "CS 204",
+    "title": "Software Engineering Lab 3",
+    "description": "The third of three experiential learning labs that provide students with hands-on experience with software engineering tools and techniques.",
+    "credits": 1.0,
+    "semesters": ["Fall", "Winter"],
+    "instructors": ["Porter Jenkins"]
+},
+{
+    "id": 26,
+    "level": 2,
+    "code": "CS 260",
+    "title": "Web Programming",
+    "description": "Introduction to web application design and implementation. Both front-end and back-end development with an emphasis on REST architectures.",
+    "credits": 3.0,
+    "semesters": ["Fall", "Winter"],
+    "instructors": ["Lee Jensen"]
+},
+{
+    "id": 27,
+    "level": 3,
+    "code": "CS 270",
+    "title": "Introduction to Machine Learning",
+    "description": "Fundamentals of machine learning models such as neural networks, decision trees, clustering, Bayesian learning, and reinforcement learning.",
+    "credits": 3.0,
+    "semesters": ["Fall", "Winter"],
+    "instructors": ["Quinn Snell"]
+},
+{
+    "id": 28,
+    "level": 3,
+    "code": "CS 312",
+    "title": "Algorithm Design and Analysis",
+    "description": "A study of algorithm design including dynamic programming, graph algorithms, divide-and-conquer, and intelligent search.",
+    "credits": 3.0,
+    "semesters": ["Fall", "Winter"],
+    "instructors": ["Ryan Matthew"]
+},
+{
+    "id": 29,
+    "level": 3,
+    "code": "CS 324",
+    "title": "Systems Programming",
+    "description": "Principles of systems programming, including Linux programming, multiprocessing, concurrency, caching, and network protocols.",
+    "credits": 3.0,
+    "semesters": ["Fall", "Winter"],
+    "instructors": ["Casey Deccio"]
+},
+{
+    "id": 30,
+    "level": 3,
+    "code": "CS 329",
+    "title": "Testing, Analysis, and Verification",
+    "description": "Software quality techniques including testing, static analysis, and verification at various software development stages.",
+    "credits": 3.0,
+    "semesters": ["Fall", "Winter"],
+    "instructors": ["Eric Mercer"]
+},
+{
+    "id": 31,
+    "level": 3,
+    "code": "CS 345",
+    "title": "Operating Systems Design",
+    "description": "Principles and concepts of operating systems design including concurrency, memory management, and scheduling.",
+    "credits": 3.0,
+    "semesters": ["Fall", "Winter"],
+    "instructors": ["Mark Clement"]
+},
+{
+    "id": 32,
+    "level": 3,
+    "code": "CS 355",
+    "title": "Interactive Graphics and Image Processing",
+    "description": "Basic concepts of computer graphics, image processing algorithms, and 3D rendering fundamentals.",
+    "credits": 3.0,
+    "semesters": ["Fall", "Winter"],
+    "instructors": ["Parris Egbert"]
+},
+{
+    "id": 33,
+    "level": 3,
+    "code": "CS 393",
+    "title": "Advanced Algorithms and Problem Solving",
+    "description": "Improving problem-solving skills and preparation for technical/coding interviews through algorithmic challenges.",
+    "credits": 3.0,
+    "semesters": ["Fall", "Winter"],
+    "instructors": ["Michael Reynolds"]
+},
+{
+    "id": 34,
+    "level": 4,
+    "code": "CS 428",
+    "title": "Software Engineering",
+    "description": "Analysis, design, implementation, and testing of significant software systems.",
+    "credits": 3.0,
+    "semesters": ["Fall", "Winter"],
+    "instructors": ["Bruce Webster"]
+},
+{
+    "id": 35,
+    "level": 4,
+    "code": "CS 450",
+    "title": "Computer Vision",
+    "description": "Introduction to fundamental concepts and algorithms of computer vision including feature extraction and image recognition.",
+    "credits": 3.0,
+    "semesters": ["Winter"],
+    "instructors": ["Ryan Farrell"]
+},
+{
+    "id": 36,
+    "level": 4,
+    "code": "CS 460",
+    "title": "Computer Networks",
+    "description": "Introduction to data communication, network protocols, and architecture.",
+    "credits": 3.0,
+    "semesters": ["Fall", "Winter"],
+    "instructors": ["Casey Deccio", "Daniel Zappala"]
+},
+{
+    "id": 37,
+    "level": 4,
+    "code": "CS 465",
+    "title": "Computer Security",
+    "description": "Introduction to computer security including authentication, encryption, and security protocols.",
+    "credits": 3.0,
+    "semesters": ["Fall", "Winter"],
+    "instructors": ["David Wilson"]
+},
+{
+    "id": 38,
+    "level": 4,
+    "code": "CS 470",
+    "title": "Artificial Intelligence",
+    "description": "Core AI topics including search, knowledge representation, learning, and reasoning.",
+    "credits": 3.0,
+    "semesters": ["Fall", "Winter", "Spring"],
+    "instructors": ["Chris Archibald"]
+}
 ]
   

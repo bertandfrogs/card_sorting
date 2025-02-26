@@ -13,18 +13,22 @@
 }
 
 body {
+  }
+  
+  body {
 	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
 	background-color: #f4f4f4;
-}
-.layout {
+  }
+  
+  .layout {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-}
-
-.header {
+  }
+  
+  .header {
 	height: var(--header-height);
 	background: var(--theme-navy);
 	background: linear-gradient(-45deg, var(--theme-navy) 0%, var(--theme-navy-light) 100%);
@@ -37,18 +41,17 @@ body {
 	top: 0;
 	box-shadow: var(--box-shadow);
 	z-index: 5;
-}
-
-.header h1 {
+  }
+  
+  .header h1 {
 	margin: 0;
-}
-
-/* corrects the misalignment problem with fa icons */
-.fa {
+  }
+  
+  .fa {
 	transform: translate(4%, 4%);
-}
-
-.hamburger-menu {
+  }
+  
+  .hamburger-menu {
 	width: 2vw;
 	height: 2vw;
 	padding: 5px;
@@ -59,13 +62,13 @@ body {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-}
-
-.hamburger-menu:hover {
+  }
+  
+  .hamburger-menu:hover {
 	background-color: rgba(0, 0, 0, 0.25);
-}
-
-.main-content {
+  }
+  
+  .main-content {
 	flex-grow: 1;
 	display: flex;
 	padding: var(--main-padding);
@@ -81,17 +84,15 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-}
-
-/* Catalog Layout */
-.catalog-container {
+  }
+  
+  .catalog-container {
 	display: flex;
 	width: 100%;
 	gap: 20px;
-}
-
-/* Sidebar (Search & Filters) */
-.sidebar {
+  }
+  
+  .sidebar {
 	width: 25%;
 	display: flex;
 	flex-direction: column;
@@ -101,86 +102,170 @@ body {
 	border-radius: 8px;
 	box-shadow: var(--box-shadow);
 	position: sticky;
-	top: calc(
-		var(--header-height) + var(--header-footer-padding) +
-			var(--main-padding)
-	);
+	top: calc(var(--header-height) + var(--header-footer-padding) + var(--main-padding));
 	height: fit-content;
-}
-
-/* Search Bar */
-.search-bar {
+  }
+  
+  /* Search Bar */
+  .search-bar {
 	display: flex;
 	align-items: center;
 	background: white;
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	padding: 8px;
-}
-
-.search-bar input {
+  }
+  
+  .search-bar input {
 	border: none;
 	outline: none;
 	width: 100%;
 	padding: 5px;
 	font-size: 16px;
-}
-
-.search-bar button {
+  }
+  
+  .search-bar button {
 	background: none;
 	border: none;
 	cursor: pointer;
 	font-size: 18px;
-}
-
-/* Filters */
-.filters {
+  }
+  
+  /* Filters Section */
+  .filters {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-}
-
-.filter-group {
+  }
+  
+  .filter-group {
+	position: relative;
+  }
+  
+  /* Dropdown Button */
+  .dropdown-btn {
+	width: 100%;
+	padding: 10px;
+	background: #00254A;
+	color: white;
+	border: none;
+	cursor: pointer;
+	text-align: left;
+	font-size: 16px;
+	border-radius: 5px;
+	transition: background 0.2s ease-in-out;
+  }
+  
+  .dropdown-btn:hover {
+	background: #00254A;
+  }
+  
+  /* Dropdown Content */
+  .dropdown-content {
+	position: absolute;
+	background: white;
+	border: 1px solid #ddd;
+	width: 100%;
+	display: none;
+	flex-direction: column;
+	max-height: 200px;
+	overflow-y: auto;
+	z-index: 10;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	padding: 8px;
+	border-radius: 5px;
+	transition: all 0.3s ease-in-out;
+  }
+  
+  /* When dropdown is open */
+  .dropdown-content.open {
+	display: flex;
+  }
+  
+  /* Keep selected filters visible when dropdown is closed */
+  .selected-filters {
 	display: flex;
 	flex-wrap: wrap;
+	gap: 5px;
+	margin-top: 5px;
+	padding: 5px;
+  }
+  
+  .selected-filter {
+	background: #00254A;
+	color: white;
+	padding: 5px 8px;
+	border-radius: 5px;
+	font-size: 14px;
+	cursor: default;
+  }
+  
+  /* Filter Options */
+  .dropdown-content label {
+	padding: 5px 10px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	transition: background 0.2s ease-in-out;
+  }
+  
+  .dropdown-content label input {
+	margin-right: 10px;
+  }
+  
+  .dropdown-content label:hover {
+	background: #f1f1f1;
+  }
+  
+  /* Reset Button */
+  .reset-button {
+	margin-top: 10px;
+	padding: 8px 12px;
+	background-color: #c51515;
+	color: white;
+	border: none;
+	cursor: pointer;
 	justify-content: space-between;
 	background: var(--theme-white);
 	padding: 10px;
 	border-radius: 5px;
-	border: 1px solid #ccc;
-}
-
-.course-list {
+	transition: background 0.2s;
+  }
+  
+  .reset-button:hover {
+	background-color: #cc0000;
+  }
+  
+  /* Course List */
+  .course-list {
 	width: 75%;
-}
-
-.course-grid {
+  }
+  
+  .course-grid {
 	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(
-		auto-fit,
-		minmax(300px, 1fr)
-	); /* Ensures cards fit dynamically */
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 15px;
 	align-items: stretch;
-}
-
-/* Course Cards */
-.course-card {
+  }
+  
+  /* Course Cards */
+  .course-card {
 	box-sizing: border-box;
 	min-width: 300px;
 	border: 1px solid #ddd;
 	padding: 15px;
 	border-radius: 8px;
+	background: white;
+	box-shadow: var(--box-shadow);
 	background: var(--theme-white);
 	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 	transition: transform 0.2s ease-in-out;
 	display: grid;
-}
-
-.course-card-header {
+  }
+  
+  .course-card-header {
 	background: #00254A;
-	/* background: #0047BA; */
 	font-family: "Nunito";
 	font-weight: 700;
 	font-size: larger;
@@ -189,9 +274,9 @@ body {
 	padding: 15px;
 	color: var(--theme-white);
 	align-content: center;
-}
-
-.course-card:hover {
+  }
+  
+  .course-card:hover {
 	transform: translateY(-3px);
 }
 
@@ -233,19 +318,22 @@ body {
 
 /* Pagination Controls */
 .pagination-controls {
+  }
+  
+  /* Pagination */
+  .pagination-controls {
 	display: flex;
 	align-items: center;
 	gap: 10px;
 	margin-bottom: 10px;
-}
-
-.pagination-controls select {
+  }
+  
+  .pagination-controls select {
 	padding: 5px;
 	font-size: 16px;
-}
-
-/* Pagination Buttons */
-.pagination {
+  }
+  
+  .pagination {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -261,15 +349,15 @@ body {
 	cursor: pointer;
 	border-radius: 5px;
 	font-size: 14px;
-}
-
-.pagination button:disabled {
+  }
+  
+  .pagination button:disabled {
 	background-color: #ccc;
 	cursor: not-allowed;
-}
-
-/* Modal Overlay (Ensures clicking outside closes modal) */
-.modal-overlay {
+  }
+  
+  /* Modal Overlay */
+  .modal-overlay {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -280,25 +368,25 @@ body {
 	align-items: center;
 	justify-content: center;
 	z-index: 1000;
-}
-
-/* Modal Content */
-.modal-content {
+  }
+  
+  /* Modal Content */
+  .modal-content {
 	background: white;
 	padding: 25px;
 	border-radius: 10px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 	max-width: 500px;
 	width: 90%;
-	position: relative; /* Needed for absolute positioning of the close button */
+	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: 15px; /* Space between sections */
+	gap: 15px;
 	align-items: flex-start;
-}
-
-/* Close Button (Positioned in the top-right) */
-.close-btn {
+  }
+  
+  /* Close Button */
+  .close-btn {
 	position: absolute;
 	top: 10px;
 	right: 10px;
@@ -308,57 +396,9 @@ body {
 	cursor: pointer;
 	color: #333;
 	transition: color 0.2s ease-in-out;
-}
-
-.close-btn:hover {
+  }
+  
+  .close-btn:hover {
 	color: #c9302c;
-}
-
-/* Modal Title */
-.modal-title {
-	font-size: 22px;
-	font-weight: bold;
-	text-align: center;
-	width: 100%;
-}
-
-/* Modal Body (Readability) */
-.modal-body {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-	font-size: 16px;
-	color: #555;
-}
-
-.multi-select {
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
   }
   
-  .multi-select label {
-	display: flex;
-	align-items: center;
-	gap: 5px;
-	cursor: pointer;
-  }
-  
-  .multi-select input {
-	accent-color: #007bff;
-  }
-  
-  .reset-button {
-	margin-top: 10px;
-	padding: 8px 12px;
-	background-color: #ff4d4d;
-	color: white;
-	border: none;
-	cursor: pointer;
-	border-radius: 5px;
-	transition: background 0.2s;
-  }
-  
-  .reset-button:hover {
-	background-color: #cc0000;
-  }

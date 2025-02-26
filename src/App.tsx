@@ -9,11 +9,17 @@ import "./styles.css";
 
 const coursesData = coursesDataRaw as Course[];
 
+// Get unique instructors from courses.json
+const allInstructors = Array.from(
+  new Set(coursesData.flatMap((course) => course.instructors))
+);
+
 const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [selectedLevels, setSelectedLevels] = useState<string[]>([]);
   const [selectedCredits, setSelectedCredits] = useState<string[]>([]);
   const [selectedSemesters, setSelectedSemesters] = useState<string[]>([]);
+  const [selectedInstructors, setSelectedInstructors] = useState<string[]>([]);
 
   // Function to toggle selected options
   const toggleSelection = (selectedArray: string[], value: string, setState: React.Dispatch<React.SetStateAction<string[]>>) => {
@@ -30,6 +36,7 @@ const App: React.FC = () => {
     setSelectedLevels([]);
     setSelectedCredits([]);
     setSelectedSemesters([]);
+    setSelectedInstructors([]);
   };
 
   const filteredCourses = coursesData
@@ -46,6 +53,9 @@ const App: React.FC = () => {
     )
     .filter((course: Course) =>
       selectedSemesters.length === 0 || selectedSemesters.some((sem) => course.semesters.includes(sem))
+    )
+    .filter((course: Course) =>
+      selectedInstructors.length === 0 || selectedInstructors.some((inst) => course.instructors.includes(inst))
     );
 
   return (
@@ -63,11 +73,14 @@ const App: React.FC = () => {
               selectedLevels={selectedLevels}
               selectedCredits={selectedCredits}
               selectedSemesters={selectedSemesters}
+              selectedInstructors={selectedInstructors}
+              allInstructors={allInstructors}
               toggleSelection={toggleSelection}
               resetFilters={resetFilters}
               setSelectedLevels={setSelectedLevels}
               setSelectedCredits={setSelectedCredits}
               setSelectedSemesters={setSelectedSemesters}
+              setSelectedInstructors={setSelectedInstructors}
             />
           </div>
 
@@ -80,4 +93,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-

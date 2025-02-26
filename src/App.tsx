@@ -3,7 +3,7 @@ import Layout from "./components/Layout.tsx";
 import SearchBar from "./components/SearchBar";
 import Filters from "./components/Filters";
 import CourseList, { Course } from "./components/CourseList";
-import coursesDataRaw from "./assets/courses.json"; // Fix for JSON import
+import coursesDataRaw from "./assets/courses.json";
 import { Helmet } from "react-helmet-async";
 import "./styles.css";
 
@@ -11,9 +11,26 @@ const coursesData = coursesDataRaw as Course[];
 
 const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [selectedLevel, setSelectedLevel] = useState<string>("");
-  const [selectedCredits, setSelectedCredits] = useState<string>("");
-  const [selectedSemester, setSelectedSemester] = useState<string>("");
+  const [selectedLevels, setSelectedLevels] = useState<string[]>([]);
+  const [selectedCredits, setSelectedCredits] = useState<string[]>([]);
+  const [selectedSemesters, setSelectedSemesters] = useState<string[]>([]);
+
+  // Function to toggle selected options
+  const toggleSelection = (selectedArray: string[], value: string, setState: React.Dispatch<React.SetStateAction<string[]>>) => {
+    if (selectedArray.includes(value)) {
+      setState(selectedArray.filter((item) => item !== value)); // Remove if already selected
+    } else {
+      setState([...selectedArray, value]); // Add if not selected
+    }
+  };
+
+  // Reset Filters Function
+  const resetFilters = () => {
+    setSearchTerm("");
+    setSelectedLevels([]);
+    setSelectedCredits([]);
+    setSelectedSemesters([]);
+  };
 
   const filteredCourses = coursesData
     .filter((course: Course) =>
@@ -22,13 +39,13 @@ const App: React.FC = () => {
       course.code.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .filter((course: Course) =>
-      selectedLevel === "" || course.level === parseInt(selectedLevel)
+      selectedLevels.length === 0 || selectedLevels.includes(course.level.toString())
     )
     .filter((course: Course) =>
-      selectedCredits === "" || course.credits.toString() === selectedCredits
+      selectedCredits.length === 0 || selectedCredits.includes(course.credits.toString())
     )
     .filter((course: Course) =>
-      selectedSemester === "" || course.semesters.includes(selectedSemester)
+      selectedSemesters.length === 0 || selectedSemesters.some((sem) => course.semesters.includes(sem))
     );
 
   return (
@@ -43,14 +60,19 @@ const App: React.FC = () => {
           <div className="sidebar">
             <SearchBar setSearchTerm={setSearchTerm} />
             <Filters
-              setSelectedLevel={setSelectedLevel}
+              selectedLevels={selectedLevels}
+              selectedCredits={selectedCredits}
+              selectedSemesters={selectedSemesters}
+              toggleSelection={toggleSelection}
+              resetFilters={resetFilters}
+              setSelectedLevels={setSelectedLevels}
               setSelectedCredits={setSelectedCredits}
-              setSelectedSemester={setSelectedSemester}
+              setSelectedSemesters={setSelectedSemesters}
             />
           </div>
 
           {/* Right Section: Course List */}
-			<CourseList courses={filteredCourses} />
+          <CourseList courses={filteredCourses} />
         </div>
       </Layout>
     </>
@@ -58,3 +80,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+

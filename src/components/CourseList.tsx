@@ -64,12 +64,16 @@ const CourseList: React.FC<CourseListProps> = ({ courses }) => {
       <div className="course-grid">
         {currentCourses.map((course) => (
           <div key={course.id} className="course-card" onClick={() => handleOpenModal(course)}>
-            <h3 className="course-card-header">{course.code}: {course.title}</h3>
+            <h3 className="course-card-header">
+				<div>{course.code}</div> 
+				<div>{course.title}</div>
+			</h3>
             <p className="course-description">{course.description}</p>
             <p><strong>Credits:</strong> {course.credits}</p>
-            <button className="view-course-btn">
-              View Course
-            </button>
+			<div className="view-course-btn">
+				<p className="course-btn-text">View Course</p>
+				<i className="fa-solid fa-angle-right"></i>
+			</div>
           </div>
         ))}
       </div>

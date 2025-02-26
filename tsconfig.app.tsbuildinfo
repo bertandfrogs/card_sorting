@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/coursecard.tsx","./src/components/courselist.tsx","./src/components/filters.tsx","./src/components/layout.tsx","./src/components/modal.tsx","./src/components/searchbar.tsx"],"version":"5.7.3"}
+{"root":["./src/App.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/CourseList.tsx","./src/components/Filters.tsx","./src/components/Layout.tsx","./src/components/Modal.tsx","./src/components/SearchBar.tsx"],"version":"5.7.3"}

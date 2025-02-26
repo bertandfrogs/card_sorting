@@ -20,7 +20,8 @@ body {
 
 .header {
 	height: var(--header-height);
-	background-color: #002e5d;
+	background: rgb(0,46,93);
+	background: linear-gradient(-45deg, rgba(0,46,93,1) 0%, rgba(0,55,112,1) 100%);
 	color: white;
 	padding: 15px;
 	display: flex;
@@ -38,24 +39,24 @@ body {
 
 /* corrects the misalignment problem with fa icons */
 .fa {
-    transform: translate(4%, 4%);
+	transform: translate(4%, 4%);
 }
 
 .hamburger-menu {
 	width: 2vw;
-    height: 2vw;
+	height: 2vw;
 	padding: 5px;
-    border-radius: 25%;
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.10);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+	border-radius: 25%;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
 .hamburger-menu:hover {
-    background-color: rgba(0, 0, 0, 0.25);
+	background-color: rgba(0, 0, 0, 0.25);
 }
 
 .main-content {
@@ -65,14 +66,15 @@ body {
 }
 
 .footer {
-	background-color: #002e5d;
+	background: rgb(0,46,93);
+	background: linear-gradient(-45deg, rgba(0,46,93,1) 0%, rgba(0,55,112,1) 100%);
 	color: white;
 	text-align: center;
 	padding: 10px;
 	height: var(--footer-height);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 /* Catalog Layout */
@@ -93,7 +95,10 @@ body {
 	border-radius: 8px;
 	box-shadow: var(--box-shadow);
 	position: sticky;
-    top: calc(var(--header-height) + var(--header-footer-padding) + var(--main-padding));
+	top: calc(
+		var(--header-height) + var(--header-footer-padding) +
+			var(--main-padding)
+	);
 	height: fit-content;
 }
 
@@ -130,10 +135,10 @@ body {
 }
 
 .filter-group {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background: white;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	background: white;
 	padding: 10px;
 	border-radius: 5px;
 	border: 1px solid #ccc;
@@ -146,25 +151,38 @@ body {
 .course-grid {
 	width: 100%;
 	display: grid;
-  	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ensures cards fit dynamically */
-  	gap: 15px;
+	grid-template-columns: repeat(
+		auto-fit,
+		minmax(300px, 1fr)
+	); /* Ensures cards fit dynamically */
+	gap: 15px;
 	align-items: stretch;
 }
 
 /* Course Cards */
 .course-card {
+	box-sizing: border-box;
 	min-width: 300px;
-	max-height: 220px;
 	border: 1px solid #ddd;
 	padding: 15px;
 	border-radius: 8px;
 	background: white;
 	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  	transition: transform 0.2s ease-in-out;
+	transition: transform 0.2s ease-in-out;
+	display: grid;
 }
 
 .course-card-header {
-	min-height: 40px;
+	background: #00254A;
+	/* background: #0047BA; */
+	font-family: "Nunito";
+	font-weight: 700;
+	font-size: larger;
+	margin: -15px -15px 0;
+	border-radius: 8px 8px 0 0;
+	padding: 15px;
+	color: white;
+	align-content: center;
 }
 
 .course-card:hover {
@@ -173,60 +191,75 @@ body {
 
 .course-description {
 	min-height: 55px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
 	display: box;
-    -webkit-line-clamp: 3; /* Limits to 3 lines */
+	-webkit-line-clamp: 3; /* Limits to 3 lines */
 	line-clamp: 3;
-    -webkit-box-orient: vertical;
+	-webkit-box-orient: vertical;
 	box-orient: vertical;
-    word-break: break-word;
+	word-break: break-word;
 }
 
 .view-course-btn {
-	background-color: #002e5d;
-	color: white;
+	display: flex;
+	align-items: center;
+	max-width: 150px;
+	justify-self: end;
+	align-self: end;
+	background-color: white;
+	color: black;
 	padding: 5px 10px;
+	height: fit-content;
 	text-decoration: none;
 	border-radius: 5px;
+	border: 1px solid #5D2F00;
+	box-shadow: var(--box-shadow);
+	cursor: pointer;
+}
+
+.course-btn-text {
+	font-family: "Nunito";
+	margin: 0;
+	padding-right: 10px;
 }
 
 /* Pagination Controls */
 .pagination-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 10px;
 }
 
 .pagination-controls select {
-    padding: 5px;
-    font-size: 16px;
+	padding: 5px;
+	font-size: 16px;
 }
 
 /* Pagination Buttons */
 .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	margin-top: 15px;
 }
 
 .pagination button {
-    background-color: #002e5d;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
+	background-color: #002e5d;
+	color: white;
+	border: none;
+	padding: 8px 15px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 14px;
 }
 
 .pagination button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+	background-color: #ccc;
+	cursor: not-allowed;
 }
 
 /* Modal Overlay (Ensures clicking outside closes modal) */
@@ -291,7 +324,7 @@ body {
 	font-size: 16px;
 	color: #555;
 }
-  
+
 .multi-select {
 	display: flex;
 	flex-direction: column;
@@ -323,4 +356,3 @@ body {
   .reset-button:hover {
 	background-color: #cc0000;
   }
-  

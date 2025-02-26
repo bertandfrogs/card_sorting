@@ -4,6 +4,12 @@
 	--header-height: 5vh;
 	--footer-height: 5vh;
 	--box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+	--theme-navy-light: #003a78;
+	--theme-navy: #002e5d;
+	--theme-navy-dark: #00254A;
+	--theme-white: white;
+	--theme-light-white: #f4f4f4;
+	--theme-light-gray: #f8f9fa;
 }
 
 body {
@@ -20,8 +26,8 @@ body {
 
 .header {
 	height: var(--header-height);
-	background: rgb(0,46,93);
-	background: linear-gradient(-45deg, rgba(0,46,93,1) 0%, rgba(0,55,112,1) 100%);
+	background: var(--theme-navy);
+	background: linear-gradient(-45deg, var(--theme-navy) 0%, var(--theme-navy-light) 100%);
 	color: white;
 	padding: 15px;
 	display: flex;
@@ -66,8 +72,8 @@ body {
 }
 
 .footer {
-	background: rgb(0,46,93);
-	background: linear-gradient(-45deg, rgba(0,46,93,1) 0%, rgba(0,55,112,1) 100%);
+	background: var(--theme-navy);
+	background: linear-gradient(-45deg, var(--theme-navy) 0%, var(--theme-navy-light) 100%);
 	color: white;
 	text-align: center;
 	padding: 10px;
@@ -138,7 +144,7 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	background: white;
+	background: var(--theme-white);
 	padding: 10px;
 	border-radius: 5px;
 	border: 1px solid #ccc;
@@ -166,7 +172,7 @@ body {
 	border: 1px solid #ddd;
 	padding: 15px;
 	border-radius: 8px;
-	background: white;
+	background: var(--theme-white);
 	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 	transition: transform 0.2s ease-in-out;
 	display: grid;
@@ -181,7 +187,7 @@ body {
 	margin: -15px -15px 0;
 	border-radius: 8px 8px 0 0;
 	padding: 15px;
-	color: white;
+	color: var(--theme-white);
 	align-content: center;
 }
 
@@ -208,13 +214,13 @@ body {
 	max-width: 150px;
 	justify-self: end;
 	align-self: end;
-	background-color: white;
+	background-color: var(--theme-white);
 	color: black;
 	padding: 5px 10px;
 	height: fit-content;
 	text-decoration: none;
 	border-radius: 5px;
-	border: 1px solid #5D2F00;
+	border: 1px solid var(--theme-navy);
 	box-shadow: var(--box-shadow);
 	cursor: pointer;
 }
@@ -248,7 +254,7 @@ body {
 }
 
 .pagination button {
-	background-color: #002e5d;
+	background-color: var(--theme-navy);
 	color: white;
 	border: none;
 	padding: 8px 15px;

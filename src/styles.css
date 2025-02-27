@@ -328,10 +328,6 @@ body {
 	padding-right: 10px;
 }
 
-/* Pagination Controls */
-.pagination-controls {
-}
-
 /* Pagination */
 .pagination-controls {
 	display: flex;
@@ -366,6 +362,17 @@ body {
 .pagination button:disabled {
 	background-color: #ccc;
 	cursor: not-allowed;
+}
+
+.no-courses-message {
+	text-align: center;
+	padding: 20px;
+	background: #eff1ff;
+	border: 1px solid #00254a9a;
+	border-radius: 8px;
+	color: #00254a;
+	font-weight: bold;
+	margin-top: 20px;
 }
 
 /* Modal Overlay */

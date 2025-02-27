@@ -20,14 +20,17 @@ const App: React.FC = () => {
   const [selectedCredits, setSelectedCredits] = useState<string[]>([]);
   const [selectedSemesters, setSelectedSemesters] = useState<string[]>([]);
   const [selectedInstructors, setSelectedInstructors] = useState<string[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Function to toggle selected options
   const toggleSelection = (selectedArray: string[], value: string, setState: React.Dispatch<React.SetStateAction<string[]>>) => {
     if (selectedArray.includes(value)) {
       setState(selectedArray.filter((item) => item !== value)); // Remove if already selected
+      setCurrentPage(1);
     } else {
       setState([...selectedArray, value]); // Add if not selected
     }
+    setCurrentPage(1);
   };
 
   // Reset Filters Function
@@ -37,6 +40,7 @@ const App: React.FC = () => {
     setSelectedCredits([]);
     setSelectedSemesters([]);
     setSelectedInstructors([]);
+    setCurrentPage(1);
   };
 
   const filteredCourses = coursesData
@@ -85,7 +89,7 @@ const App: React.FC = () => {
           </div>
 
           {/* Right Section: Course List */}
-          <CourseList courses={filteredCourses} />
+          <CourseList courses={filteredCourses} currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </div>
       </Layout>
     </>

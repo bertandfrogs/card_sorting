@@ -13,12 +13,13 @@ export interface Course {
   }
 interface CourseListProps {
   courses: Course[];
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const CourseList: React.FC<CourseListProps> = ({ courses }) => {
+const CourseList: React.FC<CourseListProps> = ({ courses, currentPage, setCurrentPage }) => {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [currentPage, setCurrentPage] = useState(1);
   const [coursesPerPage, setCoursesPerPage] = useState(6); // Default courses per page
 
   // Calculate indexes for slicing
@@ -59,24 +60,32 @@ const CourseList: React.FC<CourseListProps> = ({ courses }) => {
           <option value="12">12</option>
         </select>
       </div>
-
-      {/* Course Cards */}
-      <div className="course-grid">
-        {currentCourses.map((course) => (
-          <div key={course.id} className="course-card" onClick={() => handleOpenModal(course)}>
-            <h3 className="course-card-header">
-				<div>{course.code}</div> 
-				<div>{course.title}</div>
-			</h3>
-            <p className="course-description">{course.description}</p>
-            <p><strong>Credits:</strong> {course.credits}</p>
-			<div className="view-course-btn">
-				<p className="course-btn-text">View Course</p>
-				<i className="fa-solid fa-angle-right"></i>
-			</div>
+      {courses.length === 0 ? (
+        <div className="no-courses-message">
+          <h2>No courses found</h2>
+          <p>Try adjusting the filters to find more courses.</p>
+        </div>
+      ) : (
+        <>
+          {/* Course Cards */}
+          <div className="course-grid">
+            {currentCourses.map((course) => (
+              <div key={course.id} className="course-card" onClick={() => handleOpenModal(course)}>
+                <h3 className="course-card-header">
+            <div>{course.code}</div> 
+            <div>{course.title}</div>
+          </h3>
+                <p className="course-description">{course.description}</p>
+                <p><strong>Credits:</strong> {course.credits}</p>
+          <div className="view-course-btn">
+            <p className="course-btn-text">View Course</p>
+            <i className="fa-solid fa-angle-right"></i>
           </div>
-        ))}
-      </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
 
       {/* Pagination Buttons */}
       <div className="pagination">
@@ -84,7 +93,7 @@ const CourseList: React.FC<CourseListProps> = ({ courses }) => {
           Previous
         </button>
 
-        <span>Page {currentPage} of {totalPages}</span>
+        <span>Page {courses.length === 0 ? 0 : currentPage} of {totalPages || 0}</span>
 
         <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === totalPages}>
           Next

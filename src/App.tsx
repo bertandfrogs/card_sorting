@@ -66,7 +66,7 @@ const App: React.FC = () => {
     <>
       <Helmet>
         <title>BYU Course Catalog</title>
-        <link rel="icon" type="image/svg" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg" />
       </Helmet>
       <Layout>
         <div className="catalog-container">

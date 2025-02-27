@@ -181,7 +181,7 @@
 },
 {
     "id": 27,
-    "level": 3,
+    "level": 2,
     "code": "CS 270",
     "title": "Introduction to Machine Learning",
     "description": "Fundamentals of machine learning models such as neural networks, decision trees, clustering, Bayesian learning, and reinforcement learning.",

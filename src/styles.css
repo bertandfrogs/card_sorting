@@ -281,6 +281,7 @@ body {
 .course-card {
 	box-sizing: border-box;
 	min-width: 300px;
+	max-width: 500px;
 	border: 1px solid #ddd;
 	padding: 15px;
 	border-radius: 8px;
@@ -315,6 +316,8 @@ body {
 
 .course-description {
 	min-height: 55px;
+	max-height: calc(1.5em * 3); /* Ensures exactly 3 lines */
+  	line-height: 1.5em; /* Adjust line height for proper spacing */
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;

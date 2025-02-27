@@ -4,7 +4,6 @@ import SearchBar from "./components/SearchBar";
 import Filters from "./components/Filters";
 import CourseList, { Course } from "./components/CourseList";
 import coursesDataRaw from "./assets/courses.json";
-import { Helmet } from "react-helmet-async";
 import "./styles.css";
 
 const coursesData = coursesDataRaw as Course[];
@@ -64,10 +63,6 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>BYU Course Catalog</title>
-        <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg" />
-      </Helmet>
       <Layout>
         <div className="catalog-container">
           {/* Left Section: Search and Filters */}
